@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: ./FootballAPI
+      dockerfile: Dockerfile
+    container_name: football-api
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - AllowedOrigins=http://localhost:3000,http://localhost:80
+    networks:
+      - football-network
+
+  # Frontend React
+  frontend:
+    build:
+      context: ./foot-react
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:8080/api
+    container_name: football-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - football-network
+
+networks:
+  football-network:
+    driver: bridge
