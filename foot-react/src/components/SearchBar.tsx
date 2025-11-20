@@ -22,7 +22,7 @@ export default function SearchBar({
           <Input
             type="number"
             label="Team ID"
-            placeholder="Ex: 86 (Arsenal)"
+            placeholder="Ex: 86 (Real Madrid)"
             value={teamId}
             onChange={(e) => onTeamIdChange(e.target.value)}
             className="flex-1"

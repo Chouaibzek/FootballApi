@@ -1,5 +1,4 @@
-// Utilise la variable d'environnement ou localhost par défaut
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5293/api';
+const API_BASE_URL = 'http://localhost:5293/api';
 
 export interface Match {
   id: number;

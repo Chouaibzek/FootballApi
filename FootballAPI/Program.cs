@@ -16,12 +16,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
         policy =>
         {
-            // Récupère les origines autorisées depuis les variables d'environnement
-            var allowedOrigins = builder.Configuration.GetValue<string>("AllowedOrigins")
-                ?.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                ?? new[] { "http://localhost:5173", "http://localhost:3000", "http://localhost:5174" };
-
-            policy.WithOrigins(allowedOrigins)
+            policy.WithOrigins(
+                      "http://localhost:5173", 
+                      "http://localhost:3000",
+                      "http://localhost:5174"
+                  )
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
