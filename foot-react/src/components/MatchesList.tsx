@@ -16,7 +16,7 @@ export default function MatchesList({ matches }: MatchesListProps) {
       {/* Matchs à venir */}
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-success">
-          📅 Matchs à venir ({upcomingMatches.length})
+           Matchs à venir ({upcomingMatches.length})
         </h2>
         
         {upcomingMatches.length === 0 ? (
@@ -35,7 +35,7 @@ export default function MatchesList({ matches }: MatchesListProps) {
       {/* Matchs passés */}
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-primary">
-          ✅ Matchs terminés ({pastMatches.length})
+          Matchs terminés ({pastMatches.length})
         </h2>
         
         {pastMatches.length === 0 ? (
